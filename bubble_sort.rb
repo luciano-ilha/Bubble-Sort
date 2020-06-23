@@ -3,13 +3,11 @@ def bubble_sort_by(arr)
   while a != 0
     a = 0
     (0..(arr.length - 2)).each do |i|
-      if arr[i] > arr[i + 1]
-        temp = arr[i]
-        arr[i] = arr[i + 1]
-        arr[i + 1] = temp
-        a += 1
-        next
-      end
+      next unless arr[i] > arr[i + 1]
+      temp = arr[i]
+      arr[i] = arr[i + 1]
+      arr[i + 1] = temp
+      a += 1
     end
   end
   arr
