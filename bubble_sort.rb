@@ -4,7 +4,7 @@ def bubble_sort_by(arr)
     a = 0
     (0..(arr.length - 2)).each do |i|
       next unless arr[i] > arr[i + 1]
-      
+
       temp = arr[i]
       arr[i] = arr[i + 1]
       arr[i + 1] = temp
