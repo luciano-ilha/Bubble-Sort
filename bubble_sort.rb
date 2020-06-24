@@ -17,14 +17,14 @@ end
 def bubble_sort_by(arr)
   b = 0
   loop do
-    isChanged = false
+    is_changed = false
     (arr.length - 1 - b).times do |counter|
       if (yield [arr[counter], arr[counter + 1]]).positive?
         arr[counter], arr[counter + 1] = arr[counter + 1], arr[counter]
-        isChanged = true
+        is_changed = true
       end
     end
-    break unless isChanged
+    break unless is_changed
 
     b += 1
     break if b > arr.size - 2
@@ -39,4 +39,3 @@ end
 p result
 
 p bubble_sort([2, 4, 1, 8, 6, 21, 17, 3])
-  
