@@ -1,4 +1,4 @@
-def bubble_sort_by(arr)
+def bubble_sort(arr)
   a = -1
   while a != 0
     a = 0
@@ -14,4 +14,29 @@ def bubble_sort_by(arr)
   arr
 end
 
-p bubble_sort_by([2, 4, 1, 8, 6, 21, 17, 3])
+def bubble_sort_by(arr)
+  b = 0
+  loop do
+    isChanged = false
+    (arr.length - 1 - b).times do |counter|
+      if (yield [arr[counter], arr[counter + 1]]).positive?
+        arr[counter], arr[counter + 1] = arr[counter + 1], arr[counter]
+        isChanged = true
+      end
+    end
+    break unless isChanged
+
+    b += 1
+    break if b > arr.size - 2
+  end
+  arr
+end
+
+result = bubble_sort_by(%w[hi test hi hello hey holla oi]) do |left, right|
+  left.length - right.length
+end
+
+p result
+
+p bubble_sort([2, 4, 1, 8, 6, 21, 17, 3])
+  
